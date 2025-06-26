@@ -29,8 +29,17 @@ class AgentDAL:
             else:
                 print("Failed to connect to the database, update failed.")
     @staticmethod
-    def get_agent_by_id(agent:Agent, id:int):
-        pass
+    def get_agent_by_id(id:int):
+        query = f"SELECT * FROM agents WHERE id = {id}"
+        with MySqlData.get_connection() as conn:
+            if conn and conn.is_connected():
+                with conn.cursor(dictionary=True) as cmd:
+                    cmd.execute(query)
+                    dict_agent = cmd.fetchall()[0]
+                    return Agent(dict_agent["codeName"],dict_agent["realName"],dict_agent["location"],
+                                 dict_agent["status"],dict_agent["missionsCompleted"],dict_agent["id"])
+            else:
+                print("Failed to connect to the database.")
 
     @staticmethod
     def delete_agent_by_id(agent:Agent, id:int):
