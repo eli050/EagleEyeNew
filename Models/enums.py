@@ -7,4 +7,4 @@ class Status(Enum):
     RETIRED = "retired"
 
     def __str__(self):
-        return Status.value
+        return self.value

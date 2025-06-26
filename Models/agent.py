@@ -3,7 +3,7 @@ from Models.enums import Status
 
 class Agent:
     def __init__(self, code_name:str, real_name:str, location:str,
-                 status:str = Status.ACTIVE, missions_completed:int = 0 ,id:int = 0):
+                 status:str = str(Status.ACTIVE), missions_completed:int = 0 ,id:int = 0):
         self.code_name:str = code_name
         self.real_name:str = real_name
         self.location:str = location
@@ -22,4 +22,5 @@ class Agent:
 
 
 
+a = Agent("d,msdk","kaksj","kao")
 
