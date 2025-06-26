@@ -16,11 +16,24 @@ class AgentDAL:
             else:
                 print("Failed to connect to the database, insertion failed.")
 
+    @staticmethod
+    def update_agent_by_id(agent:Agent,id:int):
+        query = f"UPDATE agents SET location = %s, status = %s, missionsCompleted = {agent.missions_completed} WHERE id = {id}"
+        values = (agent.location, agent.status)
+        with MySqlData.get_connection() as conn:
+            if conn and conn.is_connected():
+                with conn.cursor() as cmd:
+                    cmd.execute(query, values)
+                    conn.commit()
+                    print("The update was successful.")
+            else:
+                print("Failed to connect to the database, update failed.")
+    @staticmethod
+    def get_agent_by_id(agent:Agent, id:int):
+        pass
 
-    def update_agent(self):
+    @staticmethod
+    def delete_agent_by_id(agent:Agent, id:int):
         pass
-    def get_agent_by_code_name(self):
-        pass
-    def delete_agent(self):
-        pass
+
 
