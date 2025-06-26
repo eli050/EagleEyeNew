@@ -5,3 +5,6 @@ class Status(Enum):
     INJURED = "injured"
     MISSING = "missing"
     RETIRED = "retired"
+
+    def __str__(self):
+        return Status.value
