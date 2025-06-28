@@ -17,10 +17,10 @@ class Agent:
         return status
 
     def __str__(self):
-        return (f"Agent(code_name = {self.code_name}, real_name = {self.real_name},"
+        return (f"Agent(id = {self._id}, code_name = {self.code_name}, real_name = {self.real_name},"
                 f" location = {self.location}, status = {self.status}, missions_completed = {self.missions_completed})")
 
 
 
-a = Agent("d,msdk","kaksj","kao")
+
 
