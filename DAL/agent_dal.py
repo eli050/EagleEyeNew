@@ -65,8 +65,8 @@ class AgentDAL:
                     dict_agents = cmd.fetchall()
                     list_agents = list()
                     for agent in dict_agents:
-                        list_agents.append(Agent(agent["codeName"], agent["realName"], agent["location"],
-                          agent["status"], agent["missionsCompleted"], agent["id"]))
+                        list_agents.append(str(Agent(agent["codeName"], agent["realName"], agent["location"],
+                          agent["status"], agent["missionsCompleted"], agent["id"])))
                     return list_agents
 
             else:
